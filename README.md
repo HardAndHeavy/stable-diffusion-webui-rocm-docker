@@ -1,24 +1,24 @@
-# Stable Diffusion web UI на GPU AMD Radeon в Docker
+# Stable Diffusion web UI on GPU AMD Radeon in Docker
 
 <h4 align="center">
     <p>
-        <b>Русский</b> |
-        <a href="https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker/blob/main/README_en.md">English</a>
+        <b>English</b> |
+        <a href="https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker/blob/main/README_ru.md">Русский</a>
     </p>
 </h4>
 
-[Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) в Docker [контейнере с поддержкой GPU Radeon](https://hub.docker.com/repository/docker/hardandheavy/stable-diffusion-webui-rocm/general). Проверено на AMD Radeon RX 7900 XTX.
+[Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) in a [Docker container with GPU Radeon support](https://hub.docker.com/repository/docker/hardandheavy/stable-diffusion-webui-rocm/general). Tested on AMD Radeon RX 7900 XTX.
 
-### Необходимое окружение
+### Requirements
 - Ubuntu
 - make
 - Docker
 - git
-- ROCm ([установка](https://github.com/HardAndHeavy/transformers-rocm-docker?tab=readme-ov-file#install-rocm))
+- ROCm (see the installation in [transformers-rocm-docker](https://github.com/HardAndHeavy/transformers-rocm-docker?tab=readme-ov-file#install-rocm))
 
-### Запуск
+### Launch
 - `git clone https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker`
 - `cd stable-diffusion-webui-rocm-docker`
 - `make run`
 
-При первом запуске будет происходить длительный процесс инициализации. Когда процесс завершится, Stable Diffusion станет доступен по адресу http://localhost.
+At the first start, a lengthy initialization process will take place. When the process is completed, Stable Diffusion will be available at http://localhost .
