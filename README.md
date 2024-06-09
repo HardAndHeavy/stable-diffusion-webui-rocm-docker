@@ -3,7 +3,7 @@
 <h4 align="center">
     <p>
         <b>English</b> |
-        <a href="https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker/blob/main/README_ru.md">Русский</a>
+        <a href="https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker/blob/main/docs/README_ru.md">Русский</a>
     </p>
 </h4>
 

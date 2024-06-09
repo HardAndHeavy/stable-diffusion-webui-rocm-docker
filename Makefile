@@ -8,7 +8,7 @@ else
 endif
 
 build:
-	docker build -t stable-diffusion-webui-rocm:$(tag) -f Dockerfile .
+	docker build -t stable-diffusion-webui-rocm:$(tag) -f docker/Dockerfile .
 
 publish:
 	docker image tag stable-diffusion-webui-rocm:$(tag) hardandheavy/stable-diffusion-webui-rocm:$(tag)
