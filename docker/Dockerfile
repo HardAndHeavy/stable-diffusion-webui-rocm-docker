@@ -1,4 +1,4 @@
-FROM hardandheavy/transformers-rocm:2.0.4
+FROM hardandheavy/transformers-rocm:2.1.0
 
 EXPOSE 80
 
@@ -10,7 +10,7 @@ WORKDIR /app
 
 # https://github.com/Mikubill/sd-webui-controlnet/discussions/2442
 RUN pip install insightface
-ENV PATH /opt/miniconda_sd_v1/bin:${PATH}
+ENV PATH /opt/miniconda_sd_v2.1.0/bin:${PATH}
 
 COPY ./docker/Makefile ./Makefile
 

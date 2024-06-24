@@ -28,7 +28,7 @@ bash:
 		-v ./data/stable-diffusion:/stable-diffusion \
 		-v ./data/repositories:/app/repositories \
 		-v ./data/home:/root \
-		-v ./data/miniconda_sd_v1:/opt/miniconda_sd_v1 \
+		-v ./data/miniconda_sd_v2.1.0:/opt/miniconda_sd_v2.1.0 \
 		stable-diffusion-webui-rocm:$(tag) bash
 
 run:
@@ -43,5 +43,5 @@ run:
 		-v ./data/stable-diffusion:/stable-diffusion \
 		-v ./data/repositories:/app/repositories \
 		-v ./data/home:/root \
-		-v ./data/miniconda_sd_v1:/opt/miniconda_sd_v1 \
+		-v ./data/miniconda_sd_v2.1.0:/opt/miniconda_sd_v2.1.0 \
 		hardandheavy/stable-diffusion-webui-rocm:latest

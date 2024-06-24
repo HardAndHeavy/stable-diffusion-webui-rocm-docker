@@ -1,4 +1,4 @@
-DIR = /opt/miniconda_sd_v1
+DIR = /opt/miniconda_sd_v2.1.0
 CHECK_SEED_FILE = $(DIR)/check-seed-file
 
 init:
