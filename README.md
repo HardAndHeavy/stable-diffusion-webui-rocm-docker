@@ -21,4 +21,4 @@
 - `cd stable-diffusion-webui-rocm-docker`
 - `make run`
 
-At the first start, a lengthy initialization process will take place. When the process is completed, Stable Diffusion will be available at http://localhost .
+At the first start, a lengthy initialization process will take place. When the process is completed, Stable Diffusion will be available at http://localhost.
