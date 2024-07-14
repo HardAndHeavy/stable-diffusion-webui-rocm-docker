@@ -1,12 +1,13 @@
-DIR = /opt/miniconda_sd_v2.1.0
-CHECK_SEED_FILE = $(DIR)/check-seed-file
+CHECK_SEED_FILE = /check/check-seed-file
 
 init:
 	if [ ! -f $(CHECK_SEED_FILE) ]; then \
-		cp -r /opt/miniconda/* $(DIR) && \
+		git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui /sd-webui && \
+		pip install insightface && \
 		touch $(CHECK_SEED_FILE); fi
 
 run: init
+	cd /sd-webui && \
 	python launch.py \
 		--no-half \
 		--precision=full \
@@ -16,6 +17,7 @@ run: init
 		--data-dir=/stable-diffusion
 
 run-api: init
+	cd /sd-webui && \
 	python launch.py \
 		--no-half \
 		--precision=full \

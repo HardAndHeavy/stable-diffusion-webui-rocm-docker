@@ -6,6 +6,7 @@ else ifeq ($(ROCM_GPU), gfx1100)
 else
   HSA_OVERRIDE_GFX_VERSION = "GFX version detection error"
 endif
+CONDA_DIR = $(PWD)/data/miniconda_sd_v2.1.1
 
 build:
 	docker build -t stable-diffusion-webui-rocm:$(tag) -f docker/Dockerfile .
@@ -25,13 +26,22 @@ bash:
 		--cap-add=SYS_PTRACE \
 		--security-opt seccomp=unconfined \
 		-e HSA_OVERRIDE_GFX_VERSION=$(HSA_OVERRIDE_GFX_VERSION) \
-		-v ./data/stable-diffusion:/stable-diffusion \
-		-v ./data/repositories:/app/repositories \
+		-v ./data/check:/check \
 		-v ./data/home:/root \
-		-v ./data/miniconda_sd_v2.1.0:/opt/miniconda_sd_v2.1.0 \
+		-v ./data/miniconda_sd_v$(tag):/opt/miniconda \
+		-v ./data/stable-diffusion:/stable-diffusion \
+		-v ./data/sd-webui:/sd-webui \
 		stable-diffusion-webui-rocm:$(tag) bash
 
-run:
+seed-conda:
+	if [ ! -f "$(CONDA_DIR)/conda-check-seed-file" ]; then \
+		docker run -it --rm \
+			-v $(CONDA_DIR):/opt/miniconda_seed \
+			hardandheavy/comfyui-rocm:latest sh -c \
+				"cp -r /opt/miniconda/* /opt/miniconda_seed && \
+				touch /opt/miniconda_seed/conda-check-seed-file"; fi
+
+run: seed-conda
 	docker run -it --rm \
 		-p 80:80 \
 		--device=/dev/kfd \
@@ -40,8 +50,9 @@ run:
 		--cap-add=SYS_PTRACE \
 		--security-opt seccomp=unconfined \
 		-e HSA_OVERRIDE_GFX_VERSION=$(HSA_OVERRIDE_GFX_VERSION) \
-		-v ./data/stable-diffusion:/stable-diffusion \
-		-v ./data/repositories:/app/repositories \
+		-v ./data/check:/check \
 		-v ./data/home:/root \
-		-v ./data/miniconda_sd_v2.1.0:/opt/miniconda_sd_v2.1.0 \
+		-v $(CONDA_DIR):/opt/miniconda \
+		-v ./data/stable-diffusion:/stable-diffusion \
+		-v ./data/sd-webui:/sd-webui \
 		hardandheavy/stable-diffusion-webui-rocm:latest
