@@ -17,7 +17,7 @@ publish:
 	docker image tag stable-diffusion-webui-rocm:$(tag) hardandheavy/stable-diffusion-webui-rocm:latest
 	docker push hardandheavy/stable-diffusion-webui-rocm:latest
 
-bash:
+bash-dev:
 	docker run -it --rm \
 		-p 80:80 \
 		--device=/dev/kfd \
