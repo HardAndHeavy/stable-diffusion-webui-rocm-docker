@@ -6,7 +6,7 @@ else ifeq ($(ROCM_GPU), gfx1100)
 else
   HSA_OVERRIDE_GFX_VERSION = "GFX version detection error"
 endif
-CONDA_DIR = $(PWD)/data/miniconda_sd_v2.2.0
+CONDA_DIR = $(PWD)/data/miniconda_sd_v2.3.0
 
 build:
 	docker build -t stable-diffusion-webui-rocm:$(tag) -f docker/Dockerfile .
@@ -37,7 +37,7 @@ seed-conda:
 	if [ ! -f "$(CONDA_DIR)/conda-check-seed-file" ]; then \
 		docker run -it --rm \
 			-v $(CONDA_DIR):/opt/miniconda_seed \
-			hardandheavy/comfyui-rocm:latest sh -c \
+			hardandheavy/stable-diffusion-webui-rocm:latest sh -c \
 				"cp -r /opt/miniconda/* /opt/miniconda_seed && \
 				touch /opt/miniconda_seed/conda-check-seed-file"; fi
 

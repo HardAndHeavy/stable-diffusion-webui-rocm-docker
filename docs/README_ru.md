@@ -17,8 +17,10 @@
 - ROCm ([установка](https://github.com/HardAndHeavy/transformers-rocm-docker?tab=readme-ov-file#install-rocm))
 
 ### Запуск
-- `git clone https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker`
-- `cd stable-diffusion-webui-rocm-docker`
-- `make run`
+```bash
+git clone https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker`
+cd stable-diffusion-webui-rocm-docker
+make run
+```
 
 При первом запуске будет происходить длительный процесс инициализации. Когда процесс завершится, Stable Diffusion станет доступен по адресу http://localhost.
