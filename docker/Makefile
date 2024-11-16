@@ -3,7 +3,6 @@ CHECK_SEED_FILE = /check/check-seed-file
 init:
 	if [ ! -f $(CHECK_SEED_FILE) ]; then \
 		git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui /sd-webui && \
-		pip install insightface && \
 		touch $(CHECK_SEED_FILE); fi
 
 run: init
