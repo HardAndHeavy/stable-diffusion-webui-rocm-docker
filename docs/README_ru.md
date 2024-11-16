@@ -18,7 +18,7 @@
 
 ### Запуск
 ```bash
-git clone https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker`
+git clone https://github.com/HardAndHeavy/stable-diffusion-webui-rocm-docker
 cd stable-diffusion-webui-rocm-docker
 make run
 ```
