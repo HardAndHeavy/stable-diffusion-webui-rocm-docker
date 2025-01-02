@@ -6,7 +6,7 @@ else ifeq ($(ROCM_GPU), gfx1100)
 else
   HSA_OVERRIDE_GFX_VERSION = "GFX version detection error"
 endif
-CONDA_DIR = $(PWD)/data/miniconda_sd_v2.3.3
+CONDA_DIR = $(PWD)/data/miniconda_sd_v2.4.0
 
 build:
 	docker build -t stable-diffusion-webui-rocm:$(tag) -f docker/Dockerfile .
